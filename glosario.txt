@@ -1,0 +1,11 @@
+RATIOS DE LIQUIDEZ
+Miden la capacidad de la empresa de cumplir sus obligaciones de pago a corto plazo.
+
+Desde un punto de vista de la gestión de la liquidez y la capacidad de pago, interesa que sean elevados. No obstante, dado que la rentabilidad de los activos corrientes no es muy elevada, conviene que haya un equilibrio, y que los saldos en caja y cuentas corrientes sea lo más bajo posible, ya que su rentabilidad es muy reducida. 
+
+
+
+Ratio de liquidez general. Mide las veces que con el activo circulante se puede hacer frente a las deudas a corto plazo, recogidas en el pasivo circulante.
+Ratio de test ácido o liquidez inmediata (quick ratio). Este ratio añade algo más de restricción en lo relativo a los importes disponibles, eliminando las existencias del numerador. 
+Ratio de disponibilidad o de tesorería: Es el ratio más exigente, ya que sólo considera como activo líquido el dinero realmente recogido en la caja y cuentas bancarias de la empresa y las inversiones financieras a corto plazo que la empresa realiza para obtener rendimientos adicionales de sus excedentes de tesorería puntuales.
+Ratio de días de gastos o días de tesorería: este ratio, no muy frecuente de encontrar o ver en manuales y análisis financieros, nos habla de los días que puede afrontar la empresa de sus gastos corrientes con la tesorería o disponibilidad actual.
