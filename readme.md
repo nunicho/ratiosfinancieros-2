@@ -12,7 +12,7 @@ Los estados contables son cruciales porque:
 
 ---
 
-# **📊 La importancia de los ratios financieros**
+# **📑 La importancia de los ratios financieros**
 
 Los **ratios financieros** derivados de los estados contables son indicadores clave que ayudan a evaluar la salud y desempeño financiero de una empresa. Para este simulador se consideraron los siguientes indicadores:
 
@@ -36,13 +36,10 @@ Los **ratios financieros** derivados de los estados contables son indicadores cl
 
 ---
 
-## **Cómo está estructurado el proyecto**
+## 📝 **Cómo está estructurado el proyecto**
 
 El proyecto está estructurado en un archivo JavaScript que permite calcular y mostrar varios ratios financieros mediante un menú interactivo. A continuación, se describe la estructura del proyecto:
 
-### 1. **Variables Globales**
-- **reporte:** Un array para almacenar los resultados de los cálculos de ratios.
-- **nombreEmpresa:** Una variable para guardar el nombre de la empresa.
 
 ### 2. **Menú Principal (`mostrarRatios`)**
 El menú principal es una función interactiva que ofrece al usuario las siguientes opciones:
@@ -94,9 +91,11 @@ Cada tipo de ratio tiene una función dedicada para su cálculo:
 
 ---
 
-## **Descripción del Código**
+## ⚙️ **Descripción del Código**
 
-Este código JavaScript es una aplicación interactiva para calcular diferentes tipos de ratios financieros. A continuación, se detalla su funcionamiento:
+Este código JavaScript es una aplicación interactiva para calcular diferentes tipos de ratios financieros. 
+Este código está diseñado para interactuar con el usuario a través de mensajes de alerta y solicitudes de entrada
+A continuación, se detalla su funcionamiento:
 
 ### **Variables Globales**
 - **`reporte`**: Array que almacena los resultados de los cálculos realizados.
@@ -150,15 +149,13 @@ Estas funciones realizan cálculos financieros basados en las entradas proporcio
 
 ---
 
-## **Estructuras de Control**
+### **Otras mecánicas Javascript utilizadas**
 
 - **`switch`:** Utilizado para manejar la selección de opciones del menú principal y submenús.
 - **`if`:** Validaciones de entradas numéricas y valores mayores a cero cuando corresponda.
 - **`while (true)`**: Utilizado en `guardarDatos` para solicitar al usuario si desea guardar el resultado hasta que proporcione una respuesta válida.
 
 ---
-
-Este código está diseñado para interactuar con el usuario a través de mensajes de alerta y solicitudes de entrada
 
 
 
