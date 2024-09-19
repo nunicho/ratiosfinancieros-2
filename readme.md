@@ -1,10 +1,10 @@
-# **👨‍🎓 ALUMNO **
+# **👨‍🎓 ALUMNO**
 MAURICIO JAVIER ALONSO
 
 # **🏫 Curso**
 JAVASCRIPT  de Coderhouse
 
-# ** 📚 Comisión **
+# **📚 Comisión**
 64795
 
 
