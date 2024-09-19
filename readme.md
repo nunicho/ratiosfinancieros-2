@@ -1,8 +1,18 @@
+# **👨‍🎓 ALUMNO **
+MAURICIO JAVIER ALONSO
+
+# **🏫 Curso**
+JAVASCRIPT  de Coderhouse
+
+# ** 📚 Comisión **
+64795
+
+
 # **📊 El contexto en el que es útil este sistema**
 
-Uno de los productos más importantes de la contabilidad son los **estados contables**.
+Para poder entender el conexto en el que es útil el presente simulador, es necesario hacer una breve referencia a uno de los productos más importantes de la contabilidad: los **estados contables**.
 
-Los estados contables son cruciales porque:
+Los estados contables son informes de importancia mayúscula porque:
 
 - **Proporcionan claridad:** Muestran la situación financiera de la empresa.
 - **Facilitan decisiones:** Ayudan a tomar decisiones informadas.
@@ -13,8 +23,11 @@ Los estados contables son cruciales porque:
 ---
 
 # **📑 La importancia de los ratios financieros**
+Una de las tantas herramientas disponibles para el análisis de los estados contables son los **ratios financieros** 
 
-Los **ratios financieros** derivados de los estados contables son indicadores clave que ayudan a evaluar la salud y desempeño financiero de una empresa. Para este simulador se consideraron los siguientes indicadores:
+Los **ratios financieros** derivados de los estados contables son indicadores clave que ayudan a evaluar la salud y desempeño financiero de una empresa. 
+
+Los ratios son diversos y variados. Para este simulador se consideraron los siguientes indicadores:
 
 ### **Ratios de Liquidez:**
 - **Ratio de Liquidez Corriente:** Evalúa la capacidad de la empresa para cubrir sus deudas a corto plazo usando activos corrientes.
@@ -36,12 +49,26 @@ Los **ratios financieros** derivados de los estados contables son indicadores cl
 
 ---
 
-## 📝 **Cómo está estructurado el proyecto**
+## ** Ejemplos de cálculos **
 
-El proyecto está estructurado en un archivo JavaScript que permite calcular y mostrar varios ratios financieros mediante un menú interactivo. A continuación, se describe la estructura del proyecto:
+- **Liquidez corriente:** Activo corriente 5000 / Pasivo corriente 1750 => Ratio 2.86
+- **Liquidez ácida:** (Activo corriente 7000 - Existencias 550)/ Pasivo corriente 1750 => Ratio 2.54
+- **Ratio de disponibilidad de tesorería:** (Inversiones financieras a corto plazo 3000 + Tesorería 1500)/ Pasivo corriente 400 => Ratio  11.25
+- **Liquidez días de tesorería:** (Inversiones financieras a corto plazo 3000 + Tesorería 1500)/ Gastos operativos 50000 => Ratio 32,85
+- **Ratio de solvencia:** activo total 70000 / Pasivo exigible total 55000 => 1.27
+- **Ratio de endeudamiento:** Pasivo exigible total 55000 / recursos propios 15000 =>3.67
+- **Ratio ROA:** Benerificios antes de impuestos 30000 / activo total 70000 => 42.86%
+- **Ratio ROE:** Benerificios neto después de intereses e impuestos 20000 / recursos propios 15000 => 133.33%
+- **Ratio ROCE:** Beneficio de la explotación neto de impuestos 25000 / capital invertido 15000 => 166.67%
+
+## 📝 **Cómo está estructurado el proyecto** 
+
+El proyecto está estructurado en un archivo JavaScript, cuyo código q permite calcular y mostrar varios ratios financieros mediante un menú interactivo. El código de javascript se ejecuta al abrir en el navegador un archivo html.
+
+A continuación, se describe la estructura del proyecto.
 
 
-### 2. **Menú Principal (`mostrarRatios`)**
+### 1. **Menú Principal (`mostrarRatios`)**
 El menú principal es una función interactiva que ofrece al usuario las siguientes opciones:
 
 - **Ratios de Liquidez Corriente:**  
@@ -64,14 +91,8 @@ El menú principal es una función interactiva que ofrece al usuario las siguien
 - **Salir:**  
   Opción para salir del programa.
 
-### 3. **Funciones Secundarias**
-- **`guardarDatos(resultado)`**: Permite al usuario guardar los resultados de los cálculos en el array `reporte`.
-- **`generarReporte()`**: Genera y muestra un reporte con todos los resultados guardados.
-- **`definirNombreEmpresa()`**: Permite al usuario definir o actualizar el nombre de la empresa.
-- **`limpiarRegistros()`**: Limpia el reporte y resetea el nombre de la empresa.
-- **`mostrarGlosario(tipo)`**: Muestra definiciones y explicaciones sobre los tipos de ratios seleccionados (liquidez, solvencia, rentabilidad).
 
-### 4. **Funciones de Cálculo**
+### 2. **Funciones de Cálculo**
 Cada tipo de ratio tiene una función dedicada para su cálculo:
 
 - **Ratios de Liquidez:**
@@ -91,17 +112,11 @@ Cada tipo de ratio tiene una función dedicada para su cálculo:
 
 ---
 
-## ⚙️ **Descripción del Código**
-
-Este código JavaScript es una aplicación interactiva para calcular diferentes tipos de ratios financieros. 
-Este código está diseñado para interactuar con el usuario a través de mensajes de alerta y solicitudes de entrada
-A continuación, se detalla su funcionamiento:
-
-### **Variables Globales**
+### 3. **Variables Globales**
 - **`reporte`**: Array que almacena los resultados de los cálculos realizados.
 - **`nombreEmpresa`**: String que guarda el nombre de la empresa para incluirlo en el reporte.
 
-### **Función Principal: `mostrarRatios()`**
+### 4. **Función Principal: `mostrarRatios()`**
 Esta función muestra un menú principal para que el usuario elija el tipo de ratio que desea calcular. Utiliza una estructura `switch` para manejar diferentes casos:
 
 - **`case "1"`:** Calcula ratios de liquidez.
@@ -122,14 +137,14 @@ Esta función muestra un menú principal para que el usuario elija el tipo de ra
 
 Cada caso en el `switch` principal puede llevar a una llamada recursiva a `mostrarRatios()` para permitir múltiples cálculos sin salir del menú.
 
-### **Funciones Secundarias**
+### 5. **Funciones Secundarias**
 - **`guardarDatos(resultado)`**: Solicita al usuario si desea guardar el resultado del cálculo. Si elige "Sí", añade el resultado al array `reporte`. Si elige "No", no guarda el resultado.
 - **`generarReporte()`**: Muestra un reporte de los resultados guardados y el nombre de la empresa. Si no hay resultados, muestra un mensaje de advertencia.
 - **`definirNombreEmpresa()`**: Permite al usuario ingresar el nombre de la empresa y lo guarda en `nombreEmpresa`.
 - **`limpiarRegistros()`**: Limpia el array `reporte` y resetea `nombreEmpresa`.
 - **`mostrarGlosario(tipo)`**: Muestra un glosario breve sobre el tipo de ratios seleccionado (liquidez, solvencia, rentabilidad).
 
-### **Funciones de Cálculo de Ratios**
+### 6. **Funciones de Cálculo de Ratios**
 Estas funciones realizan cálculos financieros basados en las entradas proporcionadas por el usuario:
 
 - **Ratios de Liquidez:**
@@ -149,11 +164,16 @@ Estas funciones realizan cálculos financieros basados en las entradas proporcio
 
 ---
 
-### **Otras mecánicas Javascript utilizadas**
+### 7. **Otras mecánicas Javascript utilizadas**
 
 - **`switch`:** Utilizado para manejar la selección de opciones del menú principal y submenús.
 - **`if`:** Validaciones de entradas numéricas y valores mayores a cero cuando corresponda.
 - **`while (true)`**: Utilizado en `guardarDatos` para solicitar al usuario si desea guardar el resultado hasta que proporcione una respuesta válida.
+
+### 8. **El archivo html**
+ste archivo HTML define la estructura de una página sencilla que permite al usuario calcular ratios financieros. El <head> contiene metadatos esenciales como el autor, la descripción del proyecto (relacionado con la entrega de un curso de JavaScript en Coderhouse), y palabras clave que facilitan la indexación en motores de búsqueda. También incluye un enlace a una hoja de estilos externa (styles.css) para aplicar el diseño visual de la página, y especifica el título de la página como "Ratios Financieros".
+
+En el <body>, se presenta un encabezado <h1> con el título "Ratios Financieros", seguido de un botón interactivo (<button>) que ejecuta la función mostrarRatios() cuando el usuario hace clic, lo que inicia el proceso de cálculo de los ratios financieros. El archivo JavaScript necesario para realizar estos cálculos está enlazado al final del cuerpo mediante la etiqueta <script>, que apunta al archivo ratios.js.
 
 ---
 

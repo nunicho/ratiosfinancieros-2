@@ -1,9 +1,9 @@
-//// --------------------------- VARIABLES GLOBALS -----------------------------------
+//// --------------------------- VARIABLES GLOBALES -----------------------------------
 
 let reporte = [];
 let nombreEmpresa = "";
 
-//// --------------------------- SWITCH -----------------------------------
+//// --------------------------- FUNCION PRINCIPAL -----------------------------------
 
 function mostrarRatios() {
   let eleccion = prompt(
@@ -13,7 +13,7 @@ function mostrarRatios() {
   switch (eleccion) {
     case "1":
       let liquidez = prompt(
-        "Has seleccionado Ratios de Liquidez.\nElige una opción:\n1. Ratio de Liquidez\n2. Ratio de Liquidez Ácida\n3. Ratio Disponibilidad de Tesorería\n4. Ratio Días de Tesorería\n5. Glosario\n6. Volver al menú principal"
+        "Has seleccionado Ratios de Liquidez.\nElige una opción:\n1. Ratio de Liquidez Corriente\n2. Ratio de Liquidez Ácida\n3. Ratio Disponibilidad de Tesorería\n4. Ratio Días de Tesorería\n5. Glosario\n6. Volver al menú principal"
       );
       switch (liquidez) {
         case "1":
@@ -205,7 +205,7 @@ function mostrarGlosario(tipo) {
   }
 }
 
-//// --------------------------- FUNCIONES CÁLCULO DE DATOS -----------------------------------
+//// --------------------------- FUNCIONES CÁLCULO DE RATIOS -----------------------------------
 
 function calcularLiquidezCorriente() {
   let activoCorriente = parseFloat(prompt("Introduce el Activo Corriente:"));
@@ -220,9 +220,10 @@ function calcularLiquidezCorriente() {
       "Entrada no válida. Asegúrate de ingresar números y que el Pasivo Corriente sea mayor a cero."
     );
   } else {
-    let ratioLiquidez = activoCorriente / pasivoCorriente;
-    alert("El Ratio de Liquidez es: " + ratioLiquidez.toFixed(2));
-    guardarDatos(` - Ratio de liquidez: ${ratioLiquidez}`);
+    let ratioLiquidezCorriente = activoCorriente / pasivoCorriente;
+    let ratioLiquidezCorrienteConDecimales = ratioLiquidezCorriente.toFixed(2);
+    alert("El Ratio de Liquidez es: " + ratioLiquidezCorrienteConDecimales);
+    guardarDatos(` - Ratio de liquidez: ${ratioLiquidezCorrienteConDecimales}`);
   }
 }
 
@@ -243,8 +244,11 @@ function calcularLiquidezAcida() {
     );
   } else {
     let ratioLiquidezAcida = (activoCorriente - existencias) / pasivoCorriente;
-    alert("El Ratio de Liquidez Ácida es: " + ratioLiquidezAcida.toFixed(2));
-    guardarDatos(` - Ratio de liquidez Ácida: ${ratioLiquidezAcida}`);
+    let ratioLiquidezAcidaConDecimales = ratioLiquidezAcida.toFixed(2);
+    alert("El Ratio de Liquidez Ácida es: " + ratioLiquidezAcidaConDecimales);
+    guardarDatos(
+      ` - Ratio de liquidez Ácida: ${ratioLiquidezAcidaConDecimales}`
+    );
   }
 }
 
@@ -266,10 +270,14 @@ function calcularDisponibilidadTesoreria() {
     );
   } else {
     let ratioTesoreria = (inversionesFinancieras + tesoreria) / pasivoCorriente;
+    let ratioTesoreriaConDecimales = ratioTesoreria.toFixed(2);
     alert(
-      "El Ratio de Disponibilidad de Tesorería es: " + ratioTesoreria.toFixed(2)
+      "El Ratio de Disponibilidad de Tesorería es: " +
+        ratioTesoreriaConDecimales
     );
-    guardarDatos(` - Ratio disponibilidad de Tesorería: ${ratioTesoreria}`);
+    guardarDatos(
+      ` - Ratio disponibilidad de Tesorería: ${ratioTesoreriaConDecimales}`
+    );
   }
 }
 
@@ -292,8 +300,9 @@ function calcularDiasTesoreria() {
   } else {
     let diasTesoreria =
       (inversionesFinancieras + tesoreria) / (gastosOperativos / 365);
-    alert("El Ratio de Días de Tesorería es: " + diasTesoreria.toFixed(2));
-    guardarDatos(`Ratio días de Tesorería: ${diasTesoreria}`);
+    let diasTesoreriaConDecimales = diasTesoreria.toFixed(2);
+    alert("El Ratio de Días de Tesorería es: " + diasTesoreriaConDecimales);
+    guardarDatos(` - Ratio días de Tesorería: ${diasTesoreriaConDecimales}`);
   }
 }
 
@@ -313,8 +322,9 @@ function calcularSolvencia() {
     );
   } else {
     let ratioSolvencia = activoTotal / pasivoExigibleTotal;
-    alert("El Ratio de Solvencia es: " + ratioSolvencia.toFixed(2));
-    guardarDatos(` - Ratio Solvencia ${ratioSolvencia}`);
+    let ratioSolvenciaConDecimales = ratioSolvencia.toFixed(2);
+    alert("El Ratio de Solvencia es: " + ratioSolvenciaConDecimales);
+    guardarDatos(` - Ratio Solvencia ${ratioSolvenciaConDecimales}`);
   }
 }
 
@@ -334,8 +344,11 @@ function calcularEndeudamiento() {
     );
   } else {
     let ratioEndeudamiento = pasivoExigibleTotal / recursosPropios;
-    alert("El Ratio de Endeudamiento es: " + ratioEndeudamiento.toFixed(2));
-    guardarDatos(` - Ratio de endeudamiento: ${ratioEndeudamiento}`);
+    let ratioEndeudamientoConDecimales = ratioEndeudamiento.toFixed(2);
+    alert("El Ratio de Endeudamiento es: " + ratioEndeudamientoConDecimales);
+    guardarDatos(
+      ` - Ratio de endeudamiento: ${ratioEndeudamientoConDecimales}`
+    );
   }
 }
 
@@ -349,13 +362,14 @@ function calcularROA() {
       "Entrada no válida. Asegúrate de ingresar números válidos y que el Activo Total no sea cero."
     );
   } else {
-    let ratioRoa = (beneficiosExplotacion / activoTotal) * 100;
-    alert(
-      "El Ratio de Rentabilidad Económica de Activos (ROA) es: " +
-        ratioRoa.toFixed(2) +
-        "%"
-    );
-    guardarDatos(` - Ratio ROA: ${ratioRoa}`);
+ let ratioRoa = (beneficiosExplotacion / activoTotal) * 100;
+ let ratioRoaConDecimales = ratioRoa.toFixed(2);
+ alert(
+   "El Ratio de Rentabilidad Económica de Activos (ROA) es: " +
+     ratioRoaConDecimales +
+     "%"
+ );
+ guardarDatos(` - Ratio ROA: ${ratioRoaConDecimales}%`);
   }
 }
 
@@ -371,12 +385,13 @@ function calcularROE() {
     );
   } else {
     let ratioRoe = (beneficioNeto / recursosPropios) * 100;
+    let ratioRoeConDecimales = ratioRoe.toFixed(2);
     alert(
       "El Ratio de Rentabilidad Financiera de los Recursos Propios (ROE) es: " +
-        ratioRoe.toFixed(2) +
+        ratioRoeConDecimales +
         "%"
     );
-    guardarDatos(` - Ratio ROE: ${ratioRoe}`);
+    guardarDatos(` - Ratio ROE: ${ratioRoeConDecimales}%`);
   }
 }
 
@@ -396,11 +411,12 @@ function calcularROCE() {
     );
   } else {
     let ratioRoce = (beneficioExplotacion / capitalInvertido) * 100;
+    let ratioRoceConDecimales = ratioRoce.toFixed(2);
     alert(
       "El Ratio de Rentabilidad Sobre el Capital Invertido (ROCE) es: " +
-        ratioRoce.toFixed(2) +
+        ratioRoceConDecimales +
         "%"
     );
-    guardarDatos(` - Ratio ROE: ${ratioRoce}`);
+    guardarDatos(` - Ratio ROCE: ${ratioRoceConDecimales}%`);
   }
 }
