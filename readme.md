@@ -117,6 +117,7 @@ Cada tipo de ratio tiene una función dedicada para su cálculo:
 ### 3. **Variables Globales**
 - **`reporte`**: Array que almacena los resultados de los cálculos realizados.
 - **`nombreEmpresa`**: String que guarda el nombre de la empresa para incluirlo en el reporte.
+- **`fechaActual`**: Constante que almacena la fecha en que se genera el reporte utilizando el objeto Date de JavaScript. Esta fecha se incluye en el reporte cuando se genera.
 
 ### 4. **Función Principal: `mostrarRatios()`**
 Esta función muestra un menú principal para que el usuario elija el tipo de ratio que desea calcular. Utiliza una estructura `switch` para manejar diferentes casos:
@@ -143,7 +144,7 @@ Cada caso en el `switch` principal puede llevar a una llamada recursiva a `mostr
 - **`guardarDatos(resultado)`**: Solicita al usuario si desea guardar el resultado del cálculo. Si elige "Sí", añade el resultado al array `reporte`. Si elige "No", no guarda el resultado.
 - **`generarReporte()`**: Muestra un reporte de los resultados guardados y el nombre de la empresa. Si no hay resultados, muestra un mensaje de advertencia.
 - **`definirNombreEmpresa()`**: Permite al usuario ingresar el nombre de la empresa y lo guarda en `nombreEmpresa`.
-- **`limpiarRegistros()`**: Limpia el array `reporte` y resetea `nombreEmpresa`.
+- **`limpiarRegistros()`**: Limpia el array `reporte` y resetea `nombreEmpresa`. Antes de efectuar el borrado, se aplica un confirm que le pide confirmación al usuario. También se borra del reporte la fecha. 
 - **`mostrarGlosario(tipo)`**: Muestra un glosario breve sobre el tipo de ratios seleccionado (liquidez, solvencia, rentabilidad).
 
 ### 6. **Funciones de Cálculo de Ratios**

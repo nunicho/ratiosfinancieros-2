@@ -2,6 +2,7 @@
 
 let reporte = [];
 let nombreEmpresa = "";
+const fechaActual = new Date();
 
 //// --------------------------- FUNCION PRINCIPAL -----------------------------------
 
@@ -131,7 +132,6 @@ function mostrarRatios() {
       mostrarRatios();
       break;
     case "5":
-      alert("Saliendo...");
       return;
     default:
       alert("Opción no válida. Por favor, elige una opción entre 1 y 5.");
@@ -167,22 +167,31 @@ function generarReporte() {
   } else {
     alert(
       `Reporte de la empresa: ${nombreEmpresa || "No definido"}\n` +
+        `Fecha de generación: ${fechaActual.toLocaleDateString()}\n\n` +
         reporte.join("\n")
     );
   }
 }
-
 function definirNombreEmpresa() {
   nombreEmpresa = prompt("Por favor, ingresa el nombre de la empresa:");
   alert(`Nombre de la empresa guardado: ${nombreEmpresa}`);
 }
 
 function limpiarRegistros() {
-  nombreEmpresa = "";
-  reporte = [];
-  alert("Se han limpiado los registros del reporte.");
-}
+  let confirmacion = confirm(
+    "¿Estás seguro de que deseas limpiar todos los registros?"
+  );
 
+  if (confirmacion) {
+    nombreEmpresa = "";
+    reporte = [];
+    alert(
+      `Se han limpiado los registros del reporte generados el ${fechaActual.toLocaleDateString()}.`
+    );
+  } else {
+    alert("La operación ha sido cancelada.");
+  }
+}
 function mostrarGlosario(tipo) {
   switch (tipo) {
     case "liquidez":
