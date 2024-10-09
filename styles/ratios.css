@@ -6,13 +6,11 @@ body {
   background-color: #f4f4f4; 
 }
 
-
 h1 {
   text-align: center; 
   color: #333;
   margin-top: 20px; 
 }
-
 
 button {
   display: block; 
@@ -21,13 +19,26 @@ button {
   padding: 10px; 
   font-size: 16px; 
   color: #fff; 
-  background-color: #007bff; 
   border: none; 
   border-radius: 5px; 
   cursor: pointer; 
   transition: background-color 0.3s ease; 
 }
 
-button:hover {
-  background-color: #0056b3; 
+/* Estilo para el botón AGREGAR */
+.agregar-btn {
+  background-color: #28a745; /* Verde */
+}
+
+.agregar-btn:hover {
+  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Estilo para el botón QUITAR */
+.eliminar-btn {
+  background-color: #ffc107; /* Amarillo */
+}
+
+.eliminar-btn:hover {
+  background-color: #e0a800; /* Amarillo más oscuro al pasar el mouse */
 }

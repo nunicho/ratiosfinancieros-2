@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/balances.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <title>Formulario - Estado de Situación Patrimonial</title>
+</head>
+<body>
+    <nav>
+    <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="ratios.html">Ratios</a></li>
+        <li><a href="reporte.html">Reporte</a></li>
+    </ul>
+</nav>
+    <div class="container">
+        <h1>Estado de Situación Patrimonial</h1>
+        <form id="form-patrimonio">
+            <div class="form-group">
+                <label for="caja-bancos">Caja/Bancos:</label>
+                <input type="number" id="caja-bancos" />
+            </div>
+            <div class="form-group">
+                <label for="inversiones-transitorias">Inversiones Transitorias:</label>
+                <input type="number" id="inversiones-transitorias" />
+            </div>
+            <div class="form-group">
+                <label for="bienes-cambio">Bienes en Cambio:</label>
+                <input type="number" id="bienes-cambio" />
+            </div>
+            <div class="form-group">
+                <label for="activo-no-corriente">Activo No Corriente:</label>
+                <input type="number" id="activo-no-corriente" />
+            </div>
+            <div class="form-group">
+                <label for="pasivo-corriente">Pasivo Corriente:</label>
+                <input type="number" id="pasivo-corriente" />
+            </div>
+            <div class="form-group">
+                <label for="pasivo-no-corriente">Pasivo No Corriente:</label>
+                <input type="number" id="pasivo-no-corriente" />
+            </div>
+            <div class="form-group">
+                <label for="patrimonio-neto">Patrimonio Neto:</label>
+                <input type="number" id="patrimonio-neto" disabled />
+            </div>
+            <button type="submit">Guardar Patrimonio</button>
+        </form>
+
+        <h1>Estado de Resultados</h1>
+        <form id="form-resultados">
+            <div class="form-group">
+                <label for="ventas">Ventas:</label>
+                <input type="number" id="ventas" />
+            </div>
+            <div class="form-group">
+                <label for="gastos-operativos">Gastos Operativos:</label>
+                <input type="number" id="gastos-operativos" />
+            </div>
+            <div class="form-group">
+                    <label for="utilidad-bruta">Utilidad Bruta:</label>
+                    <input type="number" id="utilidad-bruta" disabled />
+                </div>
+            <div class="form-group">
+                <label for="gastos-comercializacion">Gastos de Comercialización:</label>
+                <input type="number" id="gastos-comercializacion" />
+            </div>
+            <div class="form-group">
+                <label for="gastos-administracion">Gastos de Administración:</label>
+                <input type="number" id="gastos-administracion" />
+            </div>
+            <div class="form-group">
+                <label for="gastos-financiacion">Gastos de Financiación:</label>
+                <input type="number" id="gastos-financiacion" />
+            </div>
+            <div class="form-group">
+                <label for="utilidad-antes-impuesto">Utilidad Antes de Impuesto:</label>
+                <input type="number" id="utilidad-antes-impuesto" disabled />
+            </div>
+            <div class="form-group">
+                <label for="impuesto">Impuesto:</label>
+                <input type="number" id="impuesto" />
+            </div>
+            <div class="form-group">
+                <label for="utilidad-neta">Utilidad Neta:</label>
+                <input type="number" id="utilidad-neta" disabled />
+            </div>
+            <button type="submit">Guardar Resultados</button>
+        </form>
+          <button type="button" id="limpiar-registros">Limpiar Registros</button> 
+    </div>
+
+    <script src="../js/balances.js"></script>
+</body>
+</html>
