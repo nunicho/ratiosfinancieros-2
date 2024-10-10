@@ -1,7 +1,7 @@
 ///////////////////////    AÑADIR / ELIMINAR RATIOS AL INFORME  //////////////////////////////
 
 document.addEventListener("DOMContentLoaded", function () {
-  actualizarBotones(); 
+  actualizarBotones();
 });
 
 function agregarAlReporte(nombre, valor) {
@@ -42,10 +42,14 @@ function actualizarBotones() {
     const row = Array.from(
       document.querySelectorAll("#tabla-ratios tbody tr")
     ).find((r) => r.cells[0].textContent === ratio);
-    if (!row) return; 
+    if (!row) return;
 
-    const valorCell = row.cells[1]; 
-    const valorRatio = valorCell.textContent.trim();
+    const valorCell = row.cells[1];
+    let valorRatio = valorCell.textContent.trim();
+
+    // Verificación si el valorRatio es un número válido
+    const valorNumerico = parseFloat(valorRatio.replace("%", "").trim());
+    const esNumeroValido = !isNaN(valorNumerico) && isFinite(valorNumerico);
 
     const botonesPrevios = row.querySelector(".accion-btns");
     if (botonesPrevios) {
@@ -55,11 +59,11 @@ function actualizarBotones() {
     const accionBtns = document.createElement("div");
     accionBtns.className = "accion-btns";
 
-   
-    if (!valorRatio || valorRatio === "0") {
+    // Si el valorRatio no es válido, mostrar "Faltan datos"
+    if (!esNumeroValido || valorRatio === "") {
       const faltaDatosText = document.createElement("span");
       faltaDatosText.textContent = "Faltan datos";
-      faltaDatosText.className = "falta-datos"; 
+      faltaDatosText.className = "falta-datos";
       accionBtns.appendChild(faltaDatosText);
     } else {
       const agregarBtn = document.createElement("button");
@@ -78,21 +82,19 @@ function actualizarBotones() {
         eliminarDelReporte(ratio);
       });
 
-  
       accionBtns.appendChild(agregarBtn);
       accionBtns.appendChild(eliminarBtn);
 
-   
+      // Ocultar o mostrar botones según si el ratio está en el reporte
       if (reporte.some((r) => r.nombre === ratio)) {
-        agregarBtn.style.display = "none"; 
+        agregarBtn.style.display = "none";
         eliminarBtn.style.display = "inline";
       } else {
-        agregarBtn.style.display = "inline"; 
-        eliminarBtn.style.display = "none"; 
+        agregarBtn.style.display = "inline";
+        eliminarBtn.style.display = "none";
       }
     }
 
     row.appendChild(accionBtns);
   });
 }
-

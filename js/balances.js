@@ -63,7 +63,7 @@ function validarCampos(inputs) {
 
   return true;
 }
-
+/*
 function guardarEnLocalStorage(key, inputs) {
   const data = Object.fromEntries(
     Object.entries(inputs).map(([id, input]) => [id, parseFloat(input.value)])
@@ -71,6 +71,21 @@ function guardarEnLocalStorage(key, inputs) {
   localStorage.setItem(key, JSON.stringify(data));
   alert("Datos guardados correctamente.");
 }
+*/
+
+function guardarEnLocalStorage(key, inputs) {
+  const data = Object.fromEntries(
+    Object.entries(inputs).map(([id, input]) => [id, parseFloat(input.value)])
+  );
+  localStorage.setItem(key, JSON.stringify(data));
+
+  // Limpiar "reporte-ratios" después de guardar
+  localStorage.removeItem("reporte-ratios");
+
+  alert("Datos guardados correctamente. Ratios recalculados.");
+}
+
+
 
 function calcularPatrimonioNeto() {
   const activoCorriente =

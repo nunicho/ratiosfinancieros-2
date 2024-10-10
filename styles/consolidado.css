@@ -80,6 +80,15 @@ button.tertiary:hover {
     background-color: #e0a800; 
 }
 
+button.quaternary {
+    background-color: #007bff; 
+}
+
+button.quaternary:hover {
+    background-color: #0056b3; 
+}
+
+
 /* Navegación */
 nav {
     background-color: #333;
@@ -175,6 +184,48 @@ table td {
     color: red; 
     font-weight: bold;
     margin-left: 10px; /
+}
+
+
+/* Estilo del modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Separador entre los botones */
+.separator {
+  margin-top: 20px;
 }
 
 

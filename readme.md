@@ -63,38 +63,6 @@ Los ratios son diversos y variados. Para este simulador se consideraron los sigu
 - **Ratio ROE:** Benerificios neto después de intereses e impuestos 20000 / recursos propios 15000 => 133.33%
 - **Ratio ROCE:** Beneficio de la explotación neto de impuestos 25000 / capital invertido 15000 => 166.67%
 
-## 📝 **Cómo está estructurado el proyecto** 
-
-El proyecto está estructurado en un archivo JavaScript, cuyo código q permite calcular y mostrar varios ratios financieros mediante un menú interactivo. El código de javascript se ejecuta al abrir en el navegador un archivo html.
-
-A continuación, se describe la estructura del proyecto.
-
-
-### 1. **Menú Principal (`mostrarRatios`)**
-El menú principal es una función interactiva que ofrece al usuario las siguientes opciones:
-
-- **Ratios de Liquidez Corriente:**  
-  El usuario puede seleccionar entre varios ratios relacionados con la liquidez:  
-  - Ratio de Liquidez Corriente
-  - Ratio de Liquidez Ácida
-  - Ratio de Disponibilidad de Tesorería
-  - Ratio de Días de Tesorería  
-  También incluye un glosario de términos y la opción de volver al menú principal.
-
-- **Ratios de Solvencia y Endeudamiento:**  
-  Aquí, el usuario puede calcular el **Ratio de Solvencia** y el **Ratio de Endeudamiento**, además de acceder a un glosario y volver al menú principal.
-
-- **Ratios de Rentabilidad:**  
-  Permite calcular el **Ratio de Rentabilidad Económica de Activos (ROA)**, el **Ratio de Rentabilidad Financiera (ROE)**, y el **Ratio de Rentabilidad Sobre el Capital Invertido (ROCE)**. También ofrece un glosario y la opción de volver al menú principal.
-
-- **Reporte:**  
-  Permite generar un reporte con los resultados almacenados, definir el nombre de la empresa, limpiar los registros y volver al menú principal.
-
-- **Salir:**  
-  Opción para salir del programa.
-
-
-### 2. **Funciones de Cálculo**
 Cada tipo de ratio tiene una función dedicada para su cálculo:
 
 - **Ratios de Liquidez:**
@@ -114,69 +82,47 @@ Cada tipo de ratio tiene una función dedicada para su cálculo:
 
 ---
 
-### 3. **Variables Globales**
-- **`reporte`**: Array que almacena los resultados de los cálculos realizados.
-- **`nombreEmpresa`**: String que guarda el nombre de la empresa para incluirlo en el reporte.
-- **`fechaActual`**: Constante que almacena la fecha en que se genera el reporte utilizando el objeto Date de JavaScript. Esta fecha se incluye en el reporte cuando se genera.
 
-### 4. **Función Principal: `mostrarRatios()`**
-Esta función muestra un menú principal para que el usuario elija el tipo de ratio que desea calcular. Utiliza una estructura `switch` para manejar diferentes casos:
+## 📝 **Cómo está estructurado el proyecto** 
 
-- **`case "1"`:** Calcula ratios de liquidez.
-  - Dentro de este caso, hay otro `switch` para seleccionar el tipo específico de ratio de liquidez.
-  
-- **`case "2"`:** Calcula ratios de solvencia y endeudamiento.
-  - Aquí otro `switch` permite elegir el ratio específico.
-  
-- **`case "3"`:** Calcula ratios de rentabilidad.
-  - Un `switch` interno permite seleccionar entre diferentes ratios de rentabilidad.
-  
-- **`case "4"`:** Maneja opciones relacionadas con el reporte.
-  - Otro `switch` permite generar un reporte, definir el nombre de la empresa, limpiar registros o volver al menú principal.
-  
-- **`case "5"`:** Sale de la aplicación.
+El proyecto está estructurado en un cinco archivos html (index, empresa, balances, ratios y reporte), en seis archivos de javascript (index, empresa, balances, calculoRatios, manejoRatios, reporte) y en un archivo css (consolidado).
 
-- **`default`**: Muestra un mensaje de error si la opción seleccionada no es válida.
 
-Cada caso en el `switch` principal puede llevar a una llamada recursiva a `mostrarRatios()` para permitir múltiples cálculos sin salir del menú.
+### 1. **index.html e index.js**
+En este archivo el usuario puede iniciar la navegación en la aplicación. También está prevista la limpieza de registros del localStorage.  
 
-### 5. **Funciones Secundarias**
-- **`guardarDatos(resultado)`**: Solicita al usuario si desea guardar el resultado del cálculo. Si elige "Sí", añade el resultado al array `reporte`. Si elige "No", no guarda el resultado.
-- **`generarReporte()`**: Muestra un reporte de los resultados guardados y el nombre de la empresa. Si no hay resultados, muestra un mensaje de advertencia.
-- **`definirNombreEmpresa()`**: Permite al usuario ingresar el nombre de la empresa y lo guarda en `nombreEmpresa`.
-- **`limpiarRegistros()`**: Limpia el array `reporte` y resetea `nombreEmpresa`. Antes de efectuar el borrado, se aplica un confirm que le pide confirmación al usuario. También se borra del reporte la fecha. 
-- **`mostrarGlosario(tipo)`**: Muestra un glosario breve sobre el tipo de ratios seleccionado (liquidez, solvencia, rentabilidad).
+El javascript toma los elementos del DOM para asignarles la propiedad de navegación y también cuenta con código preparado para limpiar los registros almacenados en localStorage.
 
-### 6. **Funciones de Cálculo de Ratios**
-Estas funciones realizan cálculos financieros basados en las entradas proporcionadas por el usuario:
+También está agregada una modal donde el usuario puede visualizar un breve instructivo sobre cómo debe de usar la app. 
 
-- **Ratios de Liquidez:**
-  - `calcularLiquidezCorriente()`
-  - `calcularLiquidezAcida()`
-  - `calcularDisponibilidadTesoreria()`
-  - `calcularDiasTesoreria()`
+### 2. **empresa.html y empresa.js**
 
-- **Ratios de Solvencia:**
-  - `calcularSolvencia()`
-  - `calcularEndeudamiento()`
+El archivo html cuenta con un formulario donde el titular puede ingresar los datos relevantes de la empresa: nombre, actividad, ubicación. 
+El archivo js maneja el contenido que se vierte en el formulario y lo almacena en el localStorage, en la clave "empresa"
 
-- **Ratios de Rentabilidad:**
-  - `calcularROA()`
-  - `calcularROE()`
-  - `calcularROCE()`
+### 3. **balances.html y balances.js**
 
----
+El archivo balances.html cuenta con dos formularios donde el titular puede ingresar los datos relevantes del estado de situación patrimonial y del estado de resultados.
+El archivo balances.js maneja el contenido que se vierte de los formularios y los almacena en el localStorage, en las claves "form-patrimonio" y "form-resultados".
 
-### 7. **Otras mecánicas Javascript utilizadas**
+### 4. **ratios.html , calculoRatios.js y manejoRatios.js**
 
-- **`switch`:** Utilizado para manejar la selección de opciones del menú principal y submenús.
-- **`if`:** Validaciones de entradas numéricas y valores mayores a cero cuando corresponda.
-- **`while (true)`**: Utilizado en `guardarDatos` para solicitar al usuario si desea guardar el resultado hasta que proporcione una respuesta válida.
+El archivo ratios.html cuenta con la base para que los archivos js agreguen su contenido mediante manejo del DOM. 
+El archivo calculoRatios.js realiza los cálculos de los ratios según los datos almacenados en localStorage, cargados en "form-patrimonio" y "form-resultados".
+El archivo manejoRatios.js asigna contenido dinámico a cada ratio. Si el usuario aportó los valores necesarios para el cálculo del ratio, el mecanismo JS asignará un button que permite agregar dicho ratio al localStorage "reporte-ratios". 
+Si dicho ratio se agregó a "reporte-ratios", entonces el button cambiará su funcionalidad y ahora servirá para remover dicho ratio del "reporte-ratios". 
+Si, en cambio, no fueron ingresados los valores necesarios para calcular el ratio, en lugar de los buttons aparecerá el texto "Faltan Datos".
 
-### 8. **El archivo html**
-ste archivo HTML define la estructura de una página sencilla que permite al usuario calcular ratios financieros. El <head> contiene metadatos esenciales como el autor, la descripción del proyecto (relacionado con la entrega de un curso de JavaScript en Coderhouse), y palabras clave que facilitan la indexación en motores de búsqueda. También incluye un enlace a una hoja de estilos externa (styles.css) para aplicar el diseño visual de la página, y especifica el título de la página como "Ratios Financieros".
+### 5. **reporte.html y reporte.js**
 
-En el <body>, se presenta un encabezado <h1> con el título "Ratios Financieros", seguido de un botón interactivo (<button>) que ejecuta la función mostrarRatios() cuando el usuario hace clic, lo que inicia el proceso de cálculo de los ratios financieros. El archivo JavaScript necesario para realizar estos cálculos está enlazado al final del cuerpo mediante la etiqueta <script>, que apunta al archivo ratios.js.
+El archivo reporte.html cuenta con la base para que los archivos js agreguen su contenido mediante manejo del DOM.
+El archivo reporte.js agrega al DOM los ratios almacenados en el localStorage "reporte-ratios". También agrega al DOM los datos de la empresa almacenados en "empresa". Y, finalmente, agrega la fecha actual.
+
+
+# **🔄 Cambios realizados en relación a la entrega anterior**
+
+En la entrega anterior, los datos se manejaban a través de un mecanismo switch. Y el manejo del HTML, mediante uso del DOM, estaba pobremente desarrollado.
+En esta entrega se refactoriza el manejo de javascript, se elimina el switch y se desglosa el código javascript en varios scripts. Se hace un manejo más extenso del DOM y se incorpora localStorage para el almacenamiento de los datos ingresados por el titular.
 
 ---
 

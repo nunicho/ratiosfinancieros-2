@@ -72,18 +72,21 @@ function calcularEndeudamiento() {
   return calcularRatio(pasivoExigibleTotal, patrimonioNeto);
 }
 
-function calcularROA() {
-  return calcularRatio(utilidadBruta, activoTotal) * 100;
-}
+const calcularROA = () => {
+  const roa = calcularRatio(utilidadBruta, activoTotal);
+  return roa ? (roa * 100).toFixed(2) + " %" : null;
+};
 
-function calcularROE() {
-  return calcularRatio(utilidadNeta, patrimonioNeto) * 100;
-}
+const calcularROE = () => {
+  const roe = calcularRatio(utilidadNeta, patrimonioNeto);
+  return roe ? (roe * 100).toFixed(2) + " %" : null;
+};
 
-function calcularROCE() {
+const calcularROCE = () => {
   const capitalInvertido = patrimonioNeto;
-  return calcularRatio(utilidadNeta, capitalInvertido) * 100;
-}
+  const roce = calcularRatio(utilidadNeta, capitalInvertido);
+  return roce ? (roce * 100).toFixed(2) + " %" : null;
+};
 
 ///////////////////////     MOSTRAR LOS RATIOS EN LA TABLA  //////////////////////////////
 
@@ -96,6 +99,6 @@ document.getElementById("disponibilidad-tesoreria").textContent =
 document.getElementById("dias-tesoreria").textContent = calcularDiasTesoreria();
 document.getElementById("solvencia").textContent = calcularSolvencia();
 document.getElementById("endeudamiento").textContent = calcularEndeudamiento();
-document.getElementById("roa").textContent = calcularROA() + " %";
-document.getElementById("roe").textContent = calcularROE() + " %";
-document.getElementById("roce").textContent = calcularROCE() + " %";
+document.getElementById("roa").textContent = calcularROA();
+document.getElementById("roe").textContent = calcularROE();
+document.getElementById("roce").textContent = calcularROCE();

@@ -19,7 +19,24 @@
         <button class="primary" id="calcular-ratios">Calcular ratios</button>
         <button class="primary" id="mostrar-reporte">Mostrar reporte</button>
         <button class="secondary" id="limpiar-datos">Limpiar Datos</button>
+
+        <div class="separator"></div>
+        <button class="quaternary" id="instrucciones-btn">Ver Instrucciones</button>
     </div>
+
+    <div id="instrucciones-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Instrucciones para usar esta app:</h2>
+            <ol>
+                <li>Cargar datos de la empresa a relevar. La carga de la empresa borrará datos contables y ratios ya agregados.</li>
+                <li>Cargar Estados contables. La carga y/o modificación de datos contables reiniciará los ratios.</li>
+                <li>Ratios: asignar los ratios de preferencia al reporte.</li>
+                <li>Visualizar reporte.</li>
+            </ol>
+        </div>
+    </div>
+
     <script src="js/index.js"></script>
 </body>
 </html>
