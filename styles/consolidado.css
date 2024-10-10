@@ -89,7 +89,7 @@ button.quaternary:hover {
 }
 
 
-/* Navegación */
+
 nav {
     background-color: #333;
     color: white;
@@ -116,7 +116,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Tarjetas */
+
 .card {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -132,7 +132,7 @@ nav ul li a:hover {
     justify-content: center;
 }
 
-/* Estilos para tablas */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -187,7 +187,7 @@ table td {
 }
 
 
-/* Estilo del modal */
+
 .modal {
   display: none;
   position: fixed;
@@ -196,7 +196,7 @@ table td {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .modal-content {
@@ -223,13 +223,13 @@ table td {
   cursor: pointer;
 }
 
-/* Separador entre los botones */
+
 .separator {
   margin-top: 20px;
 }
 
 
-/* Media Queries */
+
 @media (max-width: 600px) {
     .form-group {
         flex-direction: column;

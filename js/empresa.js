@@ -23,19 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
       actividad: actividad,
       ubicacion: ubicacion,
     };
-
-    // Guardar empresa en localStorage
+    
     localStorage.setItem("empresa", JSON.stringify(empresa));
-
-    // Limpiar otros ítems del localStorage
+   
     localStorage.removeItem("reporte-ratios");
     localStorage.removeItem("form-patrimonio");
     localStorage.removeItem("form-resultados");
 
-    // Mostrar los datos ingresados
+    
     mostrarDatos(empresa);
 
-    // Mostrar alerta
     alert("Empresa asignada. Estados contables y ratios reiniciados.");
   });
 

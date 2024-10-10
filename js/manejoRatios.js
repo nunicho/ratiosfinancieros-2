@@ -47,7 +47,7 @@ function actualizarBotones() {
     const valorCell = row.cells[1];
     let valorRatio = valorCell.textContent.trim();
 
-    // Verificación si el valorRatio es un número válido
+    
     const valorNumerico = parseFloat(valorRatio.replace("%", "").trim());
     const esNumeroValido = !isNaN(valorNumerico) && isFinite(valorNumerico);
 
@@ -59,7 +59,7 @@ function actualizarBotones() {
     const accionBtns = document.createElement("div");
     accionBtns.className = "accion-btns";
 
-    // Si el valorRatio no es válido, mostrar "Faltan datos"
+    
     if (!esNumeroValido || valorRatio === "") {
       const faltaDatosText = document.createElement("span");
       faltaDatosText.textContent = "Faltan datos";
@@ -85,7 +85,7 @@ function actualizarBotones() {
       accionBtns.appendChild(agregarBtn);
       accionBtns.appendChild(eliminarBtn);
 
-      // Ocultar o mostrar botones según si el ratio está en el reporte
+      
       if (reporte.some((r) => r.nombre === ratio)) {
         agregarBtn.style.display = "none";
         eliminarBtn.style.display = "inline";
