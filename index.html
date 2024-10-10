@@ -2,21 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Mauricio Javier Alonso"/>
-  <meta name="description" content="Primera entrega curso Javascript Coderhouse" />
-  <meta name="keywords" content="ratios javascript solvencia liquidez rentabilidad"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mauricio Javier Alonso"/>
+    <meta name="description" content="Segunda entrega curso Javascript Coderhouse" />
+    <meta name="keywords" content="ratios javascript solvencia liquidez rentabilidad"/>
+    <link rel="stylesheet" href="styles/consolidado.css">
     <title>Inicio</title>
-    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
     <div class="container">
-        <h1>Página de Inicio</h1>
+        <h1>Calculadora de Ratios</h1>
         <p>Selecciona una opción:</p>
-        <button onclick="window.location.href='pages/balances.html'">Datos contables</button>
-        <button onclick="window.location.href='pages/ratios.html'">Calcular ratios</button>
-        <button onclick="window.location.href='pages/reporte.html'">Mostrar reporte</button>
+        <button class="primary" id="datos-empresa">Datos Empresa</button>
+        <button class="primary" id="datos-contables">Datos contables</button>
+        <button class="primary" id="calcular-ratios">Calcular ratios</button>
+        <button class="primary" id="mostrar-reporte">Mostrar reporte</button>
+        <button class="secondary" id="limpiar-datos">Limpiar Datos</button>
     </div>
+    <script src="js/index.js"></script>
 </body>
 </html>

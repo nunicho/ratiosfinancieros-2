@@ -1,75 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Mauricio Javier Alonso"/>
-  <meta name="description" content="Primera entrega curso Javascript Coderhouse" />
-  <meta name="keywords" content="ratios javascript solvencia liquidez rentabilidad"/>
-  <link rel="stylesheet" href="../styles/ratios.css"> 
-  <link rel="stylesheet" href="../styles/navbar.css">
-  <title>Ratios Financieros</title>
-</head>
-<body>
-  <nav>
-    <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="balances.html">Estados Contables</a></li>
-        <li><a href="reporte.html">Reporte</a></li>
-    </ul>
-</nav>
-  <h1>Ratios Financieros</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mauricio Javier Alonso" />
+    <meta
+      name="description"
+      content="Segunda entrega curso Javascript Coderhouse"
+    />
+    <meta
+      name="keywords"
+      content="ratios javascript solvencia liquidez rentabilidad"
+    />
+    <link rel="stylesheet" href="../styles/consolidado.css" />
+    <title>Ratios Financieros</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="empresa.html">Empresa</a></li>
+          <li><a href="balances.html">Estados Contables</a></li>
+          <li><a href="reporte.html">Reporte</a></li>
+        </ul>
+      </nav>
+      <h1>Ratios Financieros</h1>
 
-   <table id="tabla-ratios">
-  <thead>
-    <tr>
-      <th>Ratio</th>
-      <th>Valor</th>
-      <th>Acción</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Liquidez Corriente</td>
-      <td id="liquidez-corriente"></td>
-    </tr>
-    <tr>
-      <td>Liquidez Ácida</td>
-      <td id="liquidez-acida"></td>
-    </tr>
-    <tr>
-      <td>Disponibilidad de Tesorería</td>
-      <td id="disponibilidad-tesoreria"></td>
-    </tr>
-    <tr>
-      <td>Días de Tesorería</td>
-      <td id="dias-tesoreria"></td>
-    </tr>
-    <tr>
-      <td>Solvencia</td>
-      <td id="solvencia"></td>
-    </tr>
-    <tr>
-      <td>Endeudamiento</td>
-      <td id="endeudamiento"></td>
-    </tr>
-    <tr>
-      <td>ROA</td>
-      <td id="roa"></td>
-    </tr>
-    <tr>
-      <td>ROE</td>
-      <td id="roe"></td>
-    </tr>
-    <tr>
-      <td>ROCE</td>
-      <td id="roce"></td>
-    </tr>
-  </tbody>
-</table>
-
-  <script src="../js/ratios.js"></script>
-  <script src="../js/reporte.js"></script>
-</body>
+      <div class="container">
+        <table id="tabla-ratios">
+          <thead>
+            <tr>
+              <th>Ratio</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Liquidez Corriente</td>
+              <td id="liquidez-corriente"></td>
+            </tr>
+            <tr>
+              <td>Liquidez Ácida</td>
+              <td id="liquidez-acida"></td>
+            </tr>
+            <tr>
+              <td>Disponibilidad de Tesorería</td>
+              <td id="disponibilidad-tesoreria"></td>
+            </tr>
+            <tr>
+              <td>Días de Tesorería</td>
+              <td id="dias-tesoreria"></td>
+            </tr>
+            <tr>
+              <td>Solvencia</td>
+              <td id="solvencia"></td>
+            </tr>
+            <tr>
+              <td>Endeudamiento</td>
+              <td id="endeudamiento"></td>
+            </tr>
+            <tr>
+              <td>ROA</td>
+              <td id="roa"></td>
+            </tr>
+            <tr>
+              <td>ROE</td>
+              <td id="roe"></td>
+            </tr>
+            <tr>
+              <td>ROCE</td>
+              <td id="roce"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="../js/calculoRatios.js"></script>
+    <script src="../js/manejoRatios.js"></script>
+  </body>
 </html>

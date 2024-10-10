@@ -1,8 +1,8 @@
-// Obtener los datos del localStorage
-const patrimonio = JSON.parse(localStorage.getItem("form-patrimonio") || "{}");
-const resultados = JSON.parse(localStorage.getItem("form-resultados") || {});
 
-// Desestructurar los objetos en variables individuales
+const patrimonio = JSON.parse(localStorage.getItem("form-patrimonio") || "{}");
+const resultados = JSON.parse(localStorage.getItem("form-resultados") || "{}");
+
+
 const {
   "caja-bancos": cajaBancos,
   "inversiones-transitorias": inversionesTransitorias,
@@ -25,11 +25,11 @@ const {
   "utilidad-neta": utilidadNeta,
 } = resultados;
 
-// Función para verificar si los valores son números válidos
+
 const esNumeroValido = (...valores) =>
   valores.every((valor) => !isNaN(valor) && valor > 0);
 
-// Función auxiliar para calcular y formatear ratios
+
 const calcularRatio = (numerador, denominador) => {
   if (!esNumeroValido(numerador, denominador)) return null;
   return (numerador / denominador).toFixed(2);
@@ -85,13 +85,14 @@ function calcularROCE() {
   return calcularRatio(utilidadNeta, capitalInvertido) * 100;
 }
 
-
 ///////////////////////     MOSTRAR LOS RATIOS EN LA TABLA  //////////////////////////////
 
-// Insertar los valores calculados en las celdas correspondientes
-document.getElementById("liquidez-corriente").textContent = calcularLiquidezCorriente();
+
+document.getElementById("liquidez-corriente").textContent =
+  calcularLiquidezCorriente();
 document.getElementById("liquidez-acida").textContent = calcularLiquidezAcida();
-document.getElementById("disponibilidad-tesoreria").textContent = calcularDisponibilidadTesoreria();
+document.getElementById("disponibilidad-tesoreria").textContent =
+  calcularDisponibilidadTesoreria();
 document.getElementById("dias-tesoreria").textContent = calcularDiasTesoreria();
 document.getElementById("solvencia").textContent = calcularSolvencia();
 document.getElementById("endeudamiento").textContent = calcularEndeudamiento();

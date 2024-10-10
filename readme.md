@@ -4,7 +4,7 @@ MAURICIO JAVIER ALONSO
 # **🏫 Curso**
 JAVASCRIPT  de Coderhouse
 
-1° ENTREGABLE
+2° ENTREGABLE
 
 # **📚 Comisión**
 64795

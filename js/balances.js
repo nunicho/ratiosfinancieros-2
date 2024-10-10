@@ -1,4 +1,3 @@
-// Función para obtener elementos del DOM
 function obtenerInputsPorIds(ids) {
   return ids.reduce((acc, id) => {
     acc[id] = document.getElementById(id);
@@ -6,7 +5,6 @@ function obtenerInputsPorIds(ids) {
   }, {});
 }
 
-// Definir los IDs de los inputs
 const idsPatrimonio = [
   "caja-bancos",
   "inversiones-transitorias",
@@ -29,11 +27,9 @@ const idsResultados = [
   "utilidad-neta",
 ];
 
-// Obtener los inputs
 const inputsPatrimonio = obtenerInputsPorIds(idsPatrimonio);
 const inputsResultados = obtenerInputsPorIds(idsResultados);
 
-// Función para cargar datos desde LocalStorage
 function cargarDesdeLocalStorage(key, inputs) {
   const data = JSON.parse(localStorage.getItem(key)) || {};
   Object.keys(inputs).forEach((inputId) => {
@@ -41,16 +37,22 @@ function cargarDesdeLocalStorage(key, inputs) {
   });
 }
 
-
-// Función para validar campos
 function validarCampos(inputs) {
-  // Lista de inputs que pueden ser negativos
-  const camposPosiblesNegativos = ["utilidad-bruta", "utilidad-antes-impuesto", "utilidad-neta"];
-  
+  const camposPosiblesNegativos = [
+    "caja-bancos",
+    "inversiones-transitorias",
+    "bienes-cambio",
+    "activo-no-corriente",
+    "pasivo-corriente",
+    "pasivo-no-corriente",
+    "utilidad-bruta",
+    "utilidad-antes-impuesto",
+    "utilidad-neta",
+  ];
+
   for (let input of Object.values(inputs)) {
     const valor = parseFloat(input.value);
-    
-    // Validar si el campo no está en la lista de campos negativos
+
     if (!camposPosiblesNegativos.includes(input.id)) {
       if (isNaN(valor) || valor < 0) {
         alert("Ningún valor puede ser negativo o no numérico.");
@@ -58,11 +60,10 @@ function validarCampos(inputs) {
       }
     }
   }
-  
+
   return true;
 }
 
-// Función para guardar datos en LocalStorage
 function guardarEnLocalStorage(key, inputs) {
   const data = Object.fromEntries(
     Object.entries(inputs).map(([id, input]) => [id, parseFloat(input.value)])
@@ -71,7 +72,6 @@ function guardarEnLocalStorage(key, inputs) {
   alert("Datos guardados correctamente.");
 }
 
-// Calcular Patrimonio Neto
 function calcularPatrimonioNeto() {
   const activoCorriente =
     parseFloat(inputsPatrimonio["caja-bancos"].value) || 0;
@@ -94,7 +94,6 @@ function calcularPatrimonioNeto() {
   inputsPatrimonio["patrimonio-neto"].value = patrimonioNeto.toFixed(2);
 }
 
-// Calcular Estado de Resultados
 function calcularEstadoResultados() {
   const ventas = parseFloat(inputsResultados["ventas"].value) || 0;
   const gastosOperativos =
@@ -119,7 +118,6 @@ function calcularEstadoResultados() {
   inputsResultados["utilidad-neta"].value = utilidadNeta.toFixed(2);
 }
 
-// Función para configurar eventos en un formulario
 function configurarEventosFormulario(formId, calcularFn, validarFn, inputs) {
   const form = document.getElementById(formId);
   form.addEventListener("input", calcularFn);
@@ -131,11 +129,9 @@ function configurarEventosFormulario(formId, calcularFn, validarFn, inputs) {
   });
 }
 
-// Cargar datos desde LocalStorage
 cargarDesdeLocalStorage("form-patrimonio", inputsPatrimonio);
 cargarDesdeLocalStorage("form-resultados", inputsResultados);
 
-// Configurar eventos para formularios
 configurarEventosFormulario(
   "form-patrimonio",
   calcularPatrimonioNeto,
@@ -149,34 +145,29 @@ configurarEventosFormulario(
   inputsResultados
 );
 
-
-// Función para limpiar registros
 function limpiarRegistros(inputsPatrimonio, inputsResultados) {
-  // Limpiar inputs de patrimonio
   Object.values(inputsPatrimonio).forEach((input) => {
-    input.value = 0; // Restablece el valor a 0
+    input.value = 0;
   });
 
-  // Limpiar inputs de resultados
   Object.values(inputsResultados).forEach((input) => {
-    input.value = 0; // Restablece el valor a 0
+    input.value = 0;
   });
 
-  // Limpiar Local Storage
   localStorage.setItem("form-patrimonio", JSON.stringify({}));
   localStorage.setItem("form-resultados", JSON.stringify({}));
-  
+
   alert("Registros limpiados correctamente.");
 }
 
-// Configurar evento para el botón de limpiar registros
 document.getElementById("limpiar-registros").addEventListener("click", () => {
-  // Pregunta de confirmación
-  const confirmar = confirm('¿Estás seguro de que deseas limpiar los registros? Esta acción no se puede deshacer.');
-  
+  const confirmar = confirm(
+    "¿Estás seguro de que deseas limpiar los registros? Esta acción no se puede deshacer."
+  );
+
   if (confirmar) {
     limpiarRegistros(inputsPatrimonio, inputsResultados);
   } else {
-    alert("Acción cancelada."); // Mensaje opcional si se cancela
+    alert("Acción cancelada.");
   }
 });

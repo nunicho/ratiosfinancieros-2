@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mauricio Javier Alonso" />
+    <meta
+      name="description"
+      content="Segunda entrega curso Javascript Coderhouse"
+    />
+    <meta
+      name="keywords"
+      content="ratios javascript solvencia liquidez rentabilidad"
+    />
+    <link rel="stylesheet" href="../styles/consolidado.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="balances.html">Estados Contables</a></li>
+        <li><a href="ratios.html">Ratios</a></li>
+        <li><a href="reporte.html">Reporte</a></li>
+      </ul>
+      <h1>EMPRESA</h1>
+    </nav>
+
+    <section>
+      <h2>Datos de la Empresa</h2>
+      <form id="empresaForm">
+        <label for="nombre">Nombre de la Empresa:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="actividad">Actividad:</label>
+        <input type="text" id="actividad" name="actividad" required />
+
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" required />
+
+        <button class="primary" type="submit">Enviar</button>
+        <button class="tertiary" type="button" id="borrar">Borrar Datos</button>
+      </form>
+
+      <div id="resultado"></div>
+    </section>
+
+    <script src="../js/empresa.js"></script>
+  </body>
+</html>
